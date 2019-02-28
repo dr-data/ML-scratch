@@ -108,15 +108,15 @@ const LOCALIZED_TEXT = {
     trained_model: "学习模型",
     trained_model_text: "上传学习模型",
     training: "学习",
-    trained_images: "Trained Images",
+    trained_images: "已训练图档",
     settings: "设置",
     settings_help_text: "WebSocket服务器链接",
     connect: "连接",
     connection_id: "连接ID",
     recognition: "识别",
-    blank_id_is_invalid: "Blank ID is invalid.",
+    blank_id_is_invalid: "空白的 ID 是无效",
     no_examples_added: "尚未学习",
-    examples: "examples",
+    examples: "例子",
     train: '学习类别 %s',
     edit_label: '编辑类别',
     clear: '重置',
@@ -129,6 +129,34 @@ const LOCALIZED_TEXT = {
     readme: 'README',
     readme_url: "https://github.com/champierre/ml2scratch/blob/master/README.zh-cn.md"
   }
+zh_tw: {
+  input: "輸入",
+  connection: "連接",
+  trained_model: "學習模型",
+  trained_model_text: "上傳學習模型",
+  training: "學習",
+  trained_images: "已訓練圖檔",
+  settings: "設置",
+  settings_help_text: "WebSocket服務器鏈接",
+  connect: "連接",
+  connection_id: "連接ID",
+  recognition: "識別",
+  blank_id_is_invalid: "空白的 ID 是無效",
+  no_examples_added: "尚未學習",
+  examples: "例子",
+  train: '學習類別 %s',
+  edit_label: '編輯類別',
+  clear: '重置',
+  clear_all: '重置所有類別',
+  download: '下載',
+  upload: '上傳',
+  help_text: "打開已加入擴展功能的Scratch的頁面，把上面的連接ID拷貝到[用ID: []連接]模塊的空白處。",
+  open_scratch: '打開Scratch',
+  choose_file: '選取文件...',
+  readme: 'README',
+  readme_url: "https://github.com/champierre/ml2scratch/blob/master/README.zh-tw.md"
+
+   }
 }
 
 class I18n {
