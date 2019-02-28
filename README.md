@@ -1,6 +1,6 @@
-# ML2Scratch(Scratch2ML)
+# ML-Scratch(Scratch2ML)
 
-ML2Scratch connects Machine Learning(TensorFlow.js) to ScratchX.
+ML-Scratch connects Machine Learning(TensorFlow.js) to ScratchX.
 
 *Read this in other languages: [English](README.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md), [正体中文](README.zh-tw.md) . *
 
@@ -47,7 +47,7 @@ ML2Scratch connects Machine Learning(TensorFlow.js) to ScratchX.
 
     <img src="images/en/connect.png" />
 
-8. Click "Open Scratch" button to open Scratch with ML2Scratch extension added.
+8. Click "Open Scratch" button to open Scratch with ML-Scratch extension added.
 
     <img src="images/en/scratch.png" />
 
@@ -57,11 +57,11 @@ ML2Scratch connects Machine Learning(TensorFlow.js) to ScratchX.
 
     <img src="images/en/add_extension.png" />
 
-    Then, select "ML2Scratch".
+    Then, select "ML-Scratch".
 
     <img src="images/en/ml2scratch_extension.png" />
 
-    "ML2Scratch" category will be added.
+    "ML-Scratch" category will be added.
 
     <img src="images/en/ml2scratch_extension_added.png" />
 

@@ -1,6 +1,6 @@
-# ML2Scratch(Scratch2ML)
+# ML-Scratch(Scratch2ML)
 
-使用ML2Scratch可以将机器学习 (TensorFlow.js)与Scratch连接起来。
+使用ML-Scratch可以将机器学习 (TensorFlow.js)与Scratch连接起来。
 
 *其他语言说明页: [English](README.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md).*
 
@@ -49,7 +49,7 @@ Chinese Translation by 陶旭(Tao Xu)&lt;toukyoku@163.com&gt;
 
     <img src="images/zh-cn/connect.png" />
 
-8. 点击"打开Scratch"按钮，打开可以使用ML2Scratch的扩展功能的专用Scratch页面。
+8. 点击"打开Scratch"按钮，打开可以使用ML-Scratch的扩展功能的专用Scratch页面。
 
     <img src="images/zh-cn/scratch.png" />
 
@@ -57,11 +57,11 @@ Chinese Translation by 陶旭(Tao Xu)&lt;toukyoku@163.com&gt;
 
     <img src="images/zh-cn/add_extension.png" />
 
-    选择最后面的"ML2Scratch"一项。
+    选择最后面的"ML-Scratch"一项。
 
     <img src="images/en/ml2scratch_extension.png" />
 
-    这样就加好了"ML2Scratch"分类。
+    这样就加好了"ML-Scratch"分类。
 
     <img src="images/zh-cn/ml2scratch_extension_added.png" />
 
@@ -102,7 +102,7 @@ Chinese Translation by 陶旭(Tao Xu)&lt;toukyoku@163.com&gt;
 
 ## 文化衫
 
-这里销售印有ML2Scratch标志的文化衫 -> https://suzuri.jp/is8r_/1251743/t-shirt/s/white
+这里销售印有ML-Scratch标志的文化衫 -> https://suzuri.jp/is8r_/1251743/t-shirt/s/white
 
 ## 参考链接
 

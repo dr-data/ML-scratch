@@ -1,6 +1,6 @@
-# ML2Scratch(Scratch2ML)
+# ML-Scratch(Scratch2ML)
 
-ML2Scratchは機械学習(TensorFlow.js)をScratchXとをつなげます。
+ML-Scratchは機械学習(TensorFlow.js)をScratchXとをつなげます。
 
 *他の言語で読む: [English](README.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md).*
 
@@ -47,7 +47,7 @@ ML2Scratchは機械学習(TensorFlow.js)をScratchXとをつなげます。
 
     <img src="images/ja/connect.png" />
 
-8. 「Scratchを開く」ボタンをクリックして、ML2Scratchの拡張機能を利用可能な独自Scratchの画面を開きます。
+8. 「Scratchを開く」ボタンをクリックして、ML-Scratchの拡張機能を利用可能な独自Scratchの画面を開きます。
 
     <img src="images/ja/scratch.png" />
 
@@ -57,11 +57,11 @@ ML2Scratchは機械学習(TensorFlow.js)をScratchXとをつなげます。
 
     <img src="images/ja/add_extension.png" />
 
-    最後に並んでいる「ML2Scratch」を選びます。
+    最後に並んでいる「ML-Scratch」を選びます。
 
     <img src="images/ja/ml2scratch_extension.png" />
 
-    「ML2Scratch」カテゴリが追加されます。
+    「ML-Scratch」カテゴリが追加されます。
 
     <img src="images/ja/ml2scratch_extension_added.png" />
 
@@ -103,7 +103,7 @@ ML2Scratchは機械学習(TensorFlow.js)をScratchXとをつなげます。
 
 ## Tシャツ
 
-ML2Scratchのロゴ入りTシャツ、こちらで販売しています ->
+ML-Scratchのロゴ入りTシャツ、こちらで販売しています ->
 https://suzuri.jp/is8r_/1251743/t-shirt/s/white
 
 ## 参考
