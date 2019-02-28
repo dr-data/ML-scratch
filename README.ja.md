@@ -2,7 +2,7 @@
 
 ML-Scratchは機械学習(TensorFlow.js)をScratchXとをつなげます。
 
-*他の言語で読む: [English](README.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md).*
+*他の言語で読む: [English](README.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md), [正體中文](README.zh-tw.md).*
 
 ## 環境
 

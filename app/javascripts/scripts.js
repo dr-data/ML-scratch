@@ -339,7 +339,7 @@ class Main {
       return false;
     });
 
-    $("#scratch-link").attr('href', 'https://champierre.github.io/scratch/');
+    $("#scratch-link").attr('href', 'https://data-ng.github.io/scratch/');
 
     // Setup webcam
     navigator.mediaDevices.getUserMedia({
@@ -354,7 +354,7 @@ class Main {
 
     $(window).on('beforeunload', function () {
       if (location.href != "http://localhost:9966/dist/") {
-        return 'ページから離れようとしていますが、よろしいですか？';
+        return '我即將離開頁面，可以嗎？';
       }
     });
   }
