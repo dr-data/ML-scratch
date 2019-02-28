@@ -18,33 +18,32 @@ import FileSaver from 'file-saver';
 // Number of classes to classify
 const NUM_CLASSES = 8;
 
-String.prototype.sprintf = function()
-{
-    let str = this + '';
-    const args = Array.prototype.slice.call(arguments);
+String.prototype.sprintf = function () {
+  let str = this + '';
+  const args = Array.prototype.slice.call(arguments);
 
-    let ph = true;
-    if (str.indexOf('%s', 0) != -1) {
-        ph = false;
-    }
+  let ph = true;
+  if (str.indexOf('%s', 0) != -1) {
+    ph = false;
+  }
 
-    if (args.length === 1) {
-        if (ph) {
-            return str.replace(/%1$s/g, args[0]);
-        } else {
-            return str.replace(/%s/g, args[0]);
-        }
+  if (args.length === 1) {
+    if (ph) {
+      return str.replace(/%1$s/g, args[0]);
     } else {
-        for (let i=0; i<args.length; i++) {
-            const n = i + 1;
-            if (ph) {
-                str = str.replace('%'+n+'$s', args[i]);
-            } else {
-                str = str.replace('%s', args[i]);
-            }
-        }
+      return str.replace(/%s/g, args[0]);
     }
-    return str;
+  } else {
+    for (let i = 0; i < args.length; i++) {
+      const n = i + 1;
+      if (ph) {
+        str = str.replace('%' + n + '$s', args[i]);
+      } else {
+        str = str.replace('%s', args[i]);
+      }
+    }
+  }
+  return str;
 }
 
 const LOCALIZED_TEXT = {
@@ -128,42 +127,43 @@ const LOCALIZED_TEXT = {
     choose_file: '选取文件...',
     readme: 'README',
     readme_url: "https://github.com/champierre/ml2scratch/blob/master/README.zh-cn.md"
-  }
-zh_tw: {
-  input: "輸入",
-  connection: "連接",
-  trained_model: "學習模型",
-  trained_model_text: "上傳學習模型",
-  training: "學習",
-  trained_images: "已訓練圖檔",
-  settings: "設置",
-  settings_help_text: "WebSocket服務器鏈接",
-  connect: "連接",
-  connection_id: "連接ID",
-  recognition: "識別",
-  blank_id_is_invalid: "空白的 ID 是無效",
-  no_examples_added: "尚未學習",
-  examples: "例子",
-  train: '學習類別 %s',
-  edit_label: '編輯類別',
-  clear: '重置',
-  clear_all: '重置所有類別',
-  download: '下載',
-  upload: '上傳',
-  help_text: "打開已加入擴展功能的Scratch的頁面，把上面的連接ID拷貝到[用ID: []連接]模塊的空白處。",
-  open_scratch: '打開Scratch',
-  choose_file: '選取文件...',
-  readme: 'README',
-  readme_url: "https://github.com/champierre/ml2scratch/blob/master/README.zh-tw.md"
+  },
 
-   }
+  zh_tw: {
+    input: "輸入",
+    connection: "連接",
+    trained_model: "學習模型",
+    trained_model_text: "上傳學習模型",
+    training: "學習",
+    trained_images: "已訓練圖檔",
+    settings: "設置",
+    settings_help_text: "WebSocket服務器鏈接",
+    connect: "連接",
+    connection_id: "連接ID",
+    recognition: "識別",
+    blank_id_is_invalid: "空白的 ID 是無效",
+    no_examples_added: "尚未學習",
+    examples: "例子",
+    train: '學習類別 %s',
+    edit_label: '編輯類別',
+    clear: '重置',
+    clear_all: '重置所有類別',
+    download: '下載',
+    upload: '上傳',
+    help_text: "打開已加入擴展功能的Scratch的頁面，把上面的連接ID拷貝到[用ID: []連接]模塊的空白處。",
+    open_scratch: '打開Scratch',
+    choose_file: '選取文件...',
+    readme: 'README',
+    readme_url: "https://github.com/champierre/ml2scratch/blob/master/README.zh-tw.md"
+
+  }
 }
 
 class I18n {
-  constructor(){
+  constructor() {
     window.I18n = this;
 
-    $('[data-locale]').each(function(i, el) {
+    $('[data-locale]').each(function (i, el) {
       $(el).html(I18n.t($(el).data("locale")));
     });
   }
@@ -178,28 +178,31 @@ class I18n {
       return LOCALIZED_TEXT['ja'][key].sprintf(arg);
     } else if (lang == 'zh_cn') {
       return LOCALIZED_TEXT['zh_cn'][key].sprintf(arg);
-    }else {
+    } else {
       return LOCALIZED_TEXT['en'][key].sprintf(arg);
     }
   }
 
   static getUrlVars() {
-    let vars = [], max = 0, hash = "", array = "";
+    let vars = [],
+      max = 0,
+      hash = "",
+      array = "";
     const url = window.location.search;
 
-    hash  = url.slice(1).split('&');
+    hash = url.slice(1).split('&');
     max = hash.length;
     for (let i = 0; i < max; i++) {
-        array = hash[i].split('=');
-        vars.push(array[0]);
-        vars[array[0]] = array[1];
+      array = hash[i].split('=');
+      vars.push(array[0]);
+      vars[array[0]] = array[1];
     }
     return vars;
   }
 }
 
 class Main {
-  constructor(){
+  constructor() {
     // Initiate variables
     this.infoTexts = [];
     this.training = -1; // -1 when no class is being trained
@@ -214,14 +217,14 @@ class Main {
     });
 
     // Create cards. This needs to be run at the first place.
-    for(let i=0;i<NUM_CLASSES; i++){
+    for (let i = 0; i < NUM_CLASSES; i++) {
       this.addCard();
     }
 
     this.infoTexts = $('#learning .info-text');
 
     this.images = [];
-    for(let i=0;i<NUM_CLASSES; i++){
+    for (let i = 0; i < NUM_CLASSES; i++) {
       this.images[i] = [];
     }
 
@@ -230,37 +233,37 @@ class Main {
 
     $('#trained-images .images').hide();
 
-    $('#clear-all-menu').on('click', ()=> {
+    $('#clear-all-menu').on('click', () => {
       this.clearAll();
       return false;
     });
 
     $('#learning .edit-label-menu').each((i, el) => {
-      $(el).on('click', ()=> {
+      $(el).on('click', () => {
         this.editLabel(i);
         return false;
       });
     });
 
     $('#learning .clear-menu').each((i, el) => {
-      $(el).on('click', ()=> {
+      $(el).on('click', () => {
         this.clear(i);
         return false;
       });
     });
 
-    $('#download-button').on('click', ()=> {
+    $('#download-button').on('click', () => {
       this.download();
       return false;
     });
 
-    $('#conn-id').on('click', (e)=> {
+    $('#conn-id').on('click', (e) => {
       $(e.target).select();
     })
 
     // fileを選択したら名前を表示する
-    $('[data-file]').each(function(index, el) {
-      $(el).on('change', function(e) {
+    $('[data-file]').each(function (index, el) {
+      $(el).on('change', function (e) {
         let filename = $(e.currentTarget).val().split('\\').pop()
         let element = $(e.currentTarget).closest('.input-file').find('[data-file-name]')[0]
         element.innerText = filename;
@@ -268,12 +271,12 @@ class Main {
       });
     });
 
-    $("#upload-files").change(()=>{
+    $("#upload-files").change(() => {
       this.upload();
     });
 
     $('.card-block').each((i, el) => {
-      $(el).on('click', ()=> {
+      $(el).on('click', () => {
         $('#trained-images .images').hide();
         $('#trained-images .images').eq(i).show();
         $("#trained-images .training-id").html(i);
@@ -281,38 +284,38 @@ class Main {
     });
 
     // Create training buttons and info texts
-    for(let i=0;i<NUM_CLASSES; i++){
+    for (let i = 0; i < NUM_CLASSES; i++) {
       $('#learning .card-block__label').eq(i).html(`${i}`);
 
       let button = $('#learning button').eq(i);
 
       // Listen for mouse events when clicking the button
-      button.mousedown(()=>{
+      button.mousedown(() => {
         if (this.isTouchDevice == false) {
           this.training = i;
         }
       });
 
-      button.mouseup(()=>{
+      button.mouseup(() => {
         if (this.isTouchDevice == false) {
           this.training = -1;
         }
       });
 
-      button.on('touchstart', ()=>{
+      button.on('touchstart', () => {
         if (this.isTouchDevice) {
           this.training = i;
         }
       });
 
-      button.on('touchend', ()=>{
+      button.on('touchend', () => {
         if (this.isTouchDevice) {
           this.training = -1;
         }
       });
 
-      $('#learning .card-block .input').eq(i).on("blur", ()=>{
-        let label =  $('#learning .card-block .card-block__label').eq(i);
+      $('#learning .card-block .input').eq(i).on("blur", () => {
+        let label = $('#learning .card-block .card-block__label').eq(i);
         let input = $('#learning .card-block .input').eq(i);
         label.removeClass("none");
         input.addClass("none");
@@ -323,12 +326,14 @@ class Main {
     $('#conn-id').val(Math.random().toString(36).slice(-10));
 
     $('#wss_url').val(this.wss_url);
-    $('#wss_url').on('blur', (e)=> {
+    $('#wss_url').on('blur', (e) => {
       this.wss_url = $(e.target).val();
-      $.cookie('wss_url', this.wss_url, { expires: 90 });
+      $.cookie('wss_url', this.wss_url, {
+        expires: 90
+      });
     });
 
-    $('#connect-button').on('click', (e)=> {
+    $('#connect-button').on('click', (e) => {
       let connId = $('#conn-id').val();
       this.connect(connId);
       return false;
@@ -337,14 +342,17 @@ class Main {
     $("#scratch-link").attr('href', 'https://champierre.github.io/scratch/');
 
     // Setup webcam
-    navigator.mediaDevices.getUserMedia({video: true, audio: false})
-    .then((stream) => {
-      this.video.srcObject = stream;
-      this.video.addEventListener('playing', ()=> this.videoPlaying = true);
-      this.video.addEventListener('paused', ()=> this.videoPlaying = false);
-    })
+    navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: false
+      })
+      .then((stream) => {
+        this.video.srcObject = stream;
+        this.video.addEventListener('playing', () => this.videoPlaying = true);
+        this.video.addEventListener('paused', () => this.videoPlaying = false);
+      })
 
-    $(window).on('beforeunload', function() {
+    $(window).on('beforeunload', function () {
       if (location.href != "http://localhost:9966/dist/") {
         return 'ページから離れようとしていますが、よろしいですか？';
       }
@@ -373,9 +381,14 @@ class Main {
       if (err) {
         console.error(err);
       } else {
-        if(this.ws && this.ws.readyState === WebSocket.OPEN){
+        if (this.ws && this.ws.readyState === WebSocket.OPEN) {
           let label = $('#learning .card-block .card-block__label').eq(result.classIndex).html();
-          this.ws.send(JSON.stringify({action: 'predict', conn_id: this.connId, value: result.classIndex, label: label}));
+          this.ws.send(JSON.stringify({
+            action: 'predict',
+            conn_id: this.connId,
+            value: result.classIndex,
+            label: label
+          }));
         }
         this.updateProgress(result.confidences);
       }
@@ -383,11 +396,11 @@ class Main {
   }
 
   animate() {
-    if(this.videoPlaying){
+    if (this.videoPlaying) {
       this.classify();
 
       // Train class if one of the buttons is held down
-      if(this.training != -1){
+      if (this.training != -1) {
         const features = this.featureExtractor.infer(this.video);
         this.knnClassifier.addExample(features, String(this.training));
         this.updateCounts();
@@ -451,7 +464,7 @@ class Main {
   updateProgress(confidences) {
     let html = '';
     let labels = $('.card-block .card-block__label');
-    $.each(confidences, function(i, confidence) {
+    $.each(confidences, function (i, confidence) {
       let label = "";
       if (confidence > 0) {
         label = labels.eq(i).html();
@@ -497,7 +510,7 @@ class Main {
 
   updateCounts() {
     const counts = this.knnClassifier.getCountByLabel();
-    for(let i=0;i<NUM_CLASSES; i++){
+    for (let i = 0; i < NUM_CLASSES; i++) {
       this.infoTexts[i].innerText = `x ${counts[String(i)] || 0}`
     }
   }
