@@ -13,7 +13,6 @@
     "node-sass": "^4.9.2",
     "popper.js": "^1.14.3",
     "postcss-loader": "^2.0.10",
-    "pre-commit": "^1.2.2",
     "sass-loader": "^6.0.6",
     "spuit": "0.0.11",
     "style-loader": "^0.20.3",
@@ -52,6 +51,7 @@
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^8.0.0",
-    "budo": "^11.6.0"
+    "budo": "^11.6.0",
+    "pre-commit": "^1.2.2"
   }
 }
